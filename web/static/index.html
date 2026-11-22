@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#0b1220">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="TradingAgents">
+    <title>TradingAgents</title>
+    <link rel="manifest" href="/manifest.webmanifest">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="apple-touch-icon" href="/icon.svg">
+  </head>
+  <body>
+    <main class="app-shell">
+      <header>
+        <div>
+          <p class="eyebrow">MULTI-AGENT RESEARCH</p>
+          <h1>TradingAgents</h1>
+        </div>
+        <button id="installButton" class="install-button" hidden>安装</button>
+      </header>
+
+      <form id="analysisForm" class="card">
+        <label>
+          股票或加密资产代码
+          <input id="ticker" name="ticker" value="AAPL" maxlength="32" required autocomplete="off">
+        </label>
+        <label>
+          分析日期
+          <input id="tradeDate" name="tradeDate" type="date" required>
+        </label>
+        <fieldset>
+          <legend>分析团队</legend>
+          <label class="check"><input type="checkbox" name="analyst" value="market" checked>市场</label>
+          <label class="check"><input type="checkbox" name="analyst" value="social" checked>情绪</label>
+          <label class="check"><input type="checkbox" name="analyst" value="news" checked>新闻</label>
+          <label class="check"><input type="checkbox" name="analyst" value="fundamentals" checked>基本面</label>
+        </fieldset>
+        <label>
+          辩论轮次
+          <select id="debateRounds">
+            <option value="1">1轮（推荐）</option>
+            <option value="2">2轮</option>
+            <option value="3">3轮</option>
+          </select>
+        </label>
+        <label class="check">
+          <input id="checkpoint" type="checkbox">
+          启用中断恢复
+        </label>
+        <button id="submitButton" type="submit" class="primary">开始分析</button>
+      </form>
+
+      <section id="status" class="status" hidden>
+        <div class="spinner"></div>
+        <p>多智能体正在分析中，请保持页面打开...</p>
+      </section>
+
+      <section id="result" class="result" hidden>
+        <div class="result-heading">
+          <span id="rating" class="rating"></span>
+          <p id="resultMeta"></p>
+        </div>
+        <div id="reports"></div>
+      </section>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>

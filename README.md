@@ -170,6 +170,21 @@ python -m cli.main     # alternative: run directly from source
 ```
 You will see a screen where you can select your desired tickers, analysis date, LLM provider, research depth, and more.
 
+### iPhone/PWA Usage
+
+Install the mobile-friendly web interface on a server that can run the Python backend:
+
+```bash
+cp .env.example .env  # add your API keys
+pip install .
+tradingagents-web
+```
+
+Open `http://SERVER_ADDRESS:8000` on iPhone and add it to the Home Screen:
+Safari -> Share -> Add to Home Screen.
+
+The PWA is not an IPA and does not run TradingAgents entirely on the iPhone. API keys and the analysis process stay on the server. For HTTPS, put the server behind a reverse proxy such as Caddy or nginx; iPhone installation works most reliably over HTTPS.
+
 ### Markets and tickers
 
 TradingAgents works with any market Yahoo Finance covers, using the exchange-suffixed ticker. Company identity and the alpha benchmark resolve automatically per market.

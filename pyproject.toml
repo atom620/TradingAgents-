@@ -31,6 +31,8 @@ dependencies = [
     "tqdm>=4.67.1",
     "typing-extensions>=4.14.0",
     "yfinance>=1.4.1",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.34.0",
 ]
 
 [project.optional-dependencies]
@@ -47,12 +49,14 @@ bedrock = [
 
 [project.scripts]
 tradingagents = "cli.main:app"
+tradingagents-web = "web.app:main"
 
 [tool.setuptools.packages.find]
-include = ["tradingagents*", "cli*"]
+include = ["tradingagents*", "cli*", "web*"]
 
 [tool.setuptools.package-data]
 cli = ["static/*"]
+web = ["static/*"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
